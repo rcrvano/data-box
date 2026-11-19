@@ -1,0 +1,17 @@
+{$DOMAIN} {
+	# No access log: requests carry tokens only in the Authorization header,
+	# which Caddy redacts anyway.
+	header {
+		X-Content-Type-Options nosniff
+		Referrer-Policy no-referrer
+		Strict-Transport-Security "max-age=31536000"
+		-Server
+	}
+	request_body {
+		max_size 30MB
+	}
+	# No "encode": compressing would buffer the event stream.
+	reverse_proxy server:8790 {
+		flush_interval -1
+	}
+}

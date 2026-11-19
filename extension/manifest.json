@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "data-box",
+  "version": "0.1.0",
+  "description": "Shared to-do list in the side panel, with voice notes and live updates.",
+  "icons": { "16": "icons/icon16.png", "32": "icons/icon32.png", "48": "icons/icon48.png", "128": "icons/icon128.png" },
+  "action": { "default_title": "data-box" },
+  "side_panel": { "default_path": "panel.html" },
+  "background": { "service_worker": "background.js" },
+  "permissions": ["sidePanel", "storage", "contextMenus", "notifications", "alarms"],
+  "optional_host_permissions": ["https://*/*", "http://*/*"],
+  "commands": {
+    "_execute_action": {
+      "suggested_key": { "default": "Alt+Shift+T", "mac": "Alt+Shift+T" },
+      "description": "Open tasks"
+    }
+  }
+}

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>data-box</title>
+  <link rel="stylesheet" href="panel.css">
+</head>
+<body>
+  <header>
+    <nav id="tabs" data-i18n-title="lists"></nav>
+    <button id="addList" class="icon" data-i18n-title="newList">＋</button>
+    <span id="live" class="live" data-i18n-title="offline"></span>
+    <button id="gear" class="icon" data-i18n-title="settings">⚙</button>
+  </header>
+
+  <main id="main">
+    <form id="addForm" autocomplete="off">
+      <input id="newText" data-i18n-ph="newTask" maxlength="2000">
+      <button type="button" id="micBtn" class="icon mic" data-i18n-title="voiceNote">🎤</button>
+    </form>
+    <div id="recBar" class="rec" hidden>
+      <span class="dot"></span><span id="recTime">0:00</span>
+      <span id="recHint" class="muted" data-i18n="recHint"></span>
+      <button type="button" id="recSave" class="primary" data-i18n="done"></button>
+      <button type="button" id="recCancel" class="icon" data-i18n-title="cancel">✕</button>
+    </div>
+    <p id="status" class="status" hidden></p>
+    <ul id="open" class="tasks"></ul>
+    <p id="empty" class="empty" hidden data-i18n="noTasks"></p>
+    <details id="doneBox" hidden>
+      <summary id="doneTitle" data-i18n="done"></summary>
+      <ul id="done" class="tasks"></ul>
+    </details>
+  </main>
+
+  <section id="settings" hidden>
+    <h2 data-i18n="settings"></h2>
+    <label><span data-i18n="server"></span> <input id="sServer" placeholder="https://tasks.example.com"></label>
+    <label><span data-i18n="token"></span> <input id="sToken" type="password" placeholder="db_…"></label>
+    <label class="check"><input id="sStt" type="checkbox"> <span data-i18n="stt"></span></label>
+    <div class="row">
+      <button id="sSave" class="primary" data-i18n="save"></button>
+      <button id="sClose" data-i18n="close"></button>
+    </div>
+    <p id="sMsg" class="muted"></p>
+    <h3 data-i18n="lists"></h3>
+    <ul id="sLists" class="lists"></ul>
+  </section>
+
+  <script src="i18n.js"></script>
+  <script src="api.js"></script>
+  <script src="panel.js"></script>
+</body>
+</html>
